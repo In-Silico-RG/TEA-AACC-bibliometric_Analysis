@@ -100,5 +100,5 @@ Los datos originales de Lens.org están sujetos a sus propios términos de uso.
 
 ## Contacto
 
-**Repositorio mantenido por:** @nsiico  
+**Repositorio mantenido por:** @In-Silico-RG
 **Afiliación:** Universidad de Sucre (Unisucre), Colombia
