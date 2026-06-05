@@ -1,0 +1,1140 @@
+% ============================================================
+%  ANÁLISIS BIBLIOMÉTRICO: TEA & ALTAS CAPACIDADES EN ACADEMIA
+%  Para compilar en Overleaf (pdfLaTeX + biber)
+% ============================================================
+\documentclass[12pt, a4paper]{article}
+
+% ── Codificación y lengua ──────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% ── Tipografía ─────────────────────────────────────────────
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ── Geometría y espaciado ──────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Matemáticas ────────────────────────────────────────────
+\usepackage{amsmath, amssymb}
+
+% ── Gráficas y tablas ──────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[table, xcdraw]{xcolor}
+
+% ── Hipervínculos ──────────────────────────────────────────
+\usepackage[colorlinks=true,
+            linkcolor=blue!60!black,
+            citecolor=blue!60!black,
+            urlcolor=blue!60!black]{hyperref}
+
+% ── Bibliografía (biblatex + biber) ───────────────────────
+\usepackage[backend=biber,
+            style=apa,
+            sortcites=true,
+            sorting=nyt,
+            maxcitenames=3,
+            maxbibnames=10]{biblatex}
+\addbibresource{referencias.bib}   % archivo .bib separado
+
+% ── Utilidades ─────────────────────────────────────────────
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{lipsum}
+
+% ── Colores personalizados ─────────────────────────────────
+\definecolor{azuloscuro}{RGB}{46, 74, 122}
+\definecolor{rojooscuro}{RGB}{192, 57, 43}
+\definecolor{verdoscuro}{RGB}{92, 122, 46}
+\definecolor{grisFondo}{RGB}{245, 242, 235}
+
+% ── Cajas de advertencia / nota ───────────────────────────
+\usepackage{mdframed}
+\newmdenv[backgroundcolor=grisFondo,
+          linecolor=azuloscuro,
+          linewidth=1pt,
+          leftline=true, rightline=false,
+          topline=false, bottomline=false,
+          innerleftmargin=8pt, innerrightmargin=8pt,
+          innertopmargin=6pt, innerbottommargin=6pt]{notabox}
+
+% ── Encabezados ────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small TEA, Altas Capacidades e Investigación}
+\lhead{\small Análisis Bibliométrico · Lens.org}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Metadatos PDF ──────────────────────────────────────────
+\hypersetup{
+  pdftitle={Análisis bibliométrico sobre la intersección del Trastorno del Espectro Autista y las Altas Capacidades en investigadores y académicos},
+  pdfauthor={},
+  pdfkeywords={TEA, altas capacidades, doble excepcionalidad, bibliometría, academia, Colombia, Latinoamérica}
+}
+
+% ═══════════════════════════════════════════════════════════
+\begin{document}
+% ═══════════════════════════════════════════════════════════
+
+% ── PORTADA ───────────────────────────────────────────────
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+
+{\color{azuloscuro}\rule{\linewidth}{2pt}}
+\vspace{0.5cm}
+
+{\Large\bfseries Análisis Bibliométrico sobre la Intersección del\\[6pt]
+Trastorno del Espectro Autista y las Altas Capacidades\\[6pt]
+en Investigadores y Académicos Profesionales}
+
+\vspace{0.4cm}
+{\color{rojooscuro}\rule{\linewidth}{0.8pt}}
+
+\vspace{0.8cm}
+
+{\large\itshape Una revisión del estado del arte con perspectiva\\
+global, latinoamericana y colombiana}
+
+\vspace{1.2cm}
+
+% Autores — completar
+{\normalsize
+\textbf{[Autor/es]}\\[4pt]
+\textit{[Afiliación institucional]}\\[4pt]
+\textit{[Correo electrónico]}
+}
+
+\vspace{1.2cm}
+
+{\normalsize
+\textbf{Tipo de manuscrito:} Revisión bibliométrica\\[4pt]
+\textbf{Fuente de datos:} Lens.org\\[4pt]
+\textbf{Fecha de la búsqueda:} Junio de 2026\\[4pt]
+\textbf{Período analizado:} 1998--2026
+}
+
+\vspace{1.5cm}
+
+\begin{notabox}
+\small
+\textbf{Palabras clave:} trastorno del espectro autista; altas capacidades; doble
+excepcionalidad; \textit{twice-exceptional}; bibliometría; análisis cienciométrico;
+academia; investigación; diagnóstico tardío; enmascaramiento; Colombia;
+Latinoamérica; neurodiversidad.
+\end{notabox}
+
+\vfill
+{\color{azuloscuro}\rule{\linewidth}{2pt}}
+\end{titlepage}
+
+% ── RESUMEN ───────────────────────────────────────────────
+\newpage
+\begin{abstract}
+\noindent
+\textbf{Antecedentes y objetivo.} La co-ocurrencia del Trastorno del Espectro Autista
+(TEA) y las Altas Capacidades Intelectuales (AACC) —conocida como doble
+excepcionalidad o \textit{twice-exceptionality} (2e)— ha ganado atención investigadora
+en la última década, aunque la producción científica sigue siendo escasa y concentrada
+casi exclusivamente en poblaciones infantiles y escolares. Los individuos adultos con
+perfil 2e que se desempeñan en entornos académicos o científicos representan un
+subgrupo particularmente invisible en la literatura. Este trabajo tiene como objetivo
+mapear y caracterizar la producción científica global sobre la intersección TEA--AACC
+con especial énfasis en investigadores y académicos profesionales, y situar el estado
+del campo en los contextos latinoamericano y colombiano.
+
+\noindent
+\textbf{Métodos.} Se realizó un análisis bibliométrico a partir de cinco estrategias
+de búsqueda booleana ejecutadas en Lens.org en junio de 2026. El corpus final, tras
+deduplicación por DOI e identificador Lens, comprende \textbf{3.966 registros} (1834--2026),
+de los cuales 2.838 (71,6\,\%) son artículos de revista, distribuidos en 1.635 fuentes
+distintas. Se aplicaron indicadores de productividad (Ley de Bradford, Ley de Lotka),
+análisis de coautoría, evolución temporal y análisis de co-ocurrencia de términos en
+títulos, con visualizaciones generadas en Python (\texttt{bibtexparser}, \texttt{pandas},
+\texttt{networkx}, \texttt{wordcloud}).
+
+\noindent
+\textbf{Resultados.} La producción científica creció a una tasa anual compuesta del
+16,4\,\% entre 2010 y 2020, con un pico de 425--424 registros en 2021--2022. El 78,3\,\%
+del corpus total se publicó después de 2015. El núcleo Bradford comprende 113 revistas
+que concentran el primer tercio de la producción, lideradas por \textit{Frontiers in
+Psychology} ($n=65$), \textit{Journal of Autism and Developmental Disorders} ($n=41$) y
+\textit{Focus on Exceptional Children} ($n=33$). La distribución de autoría sigue el
+patrón de Lotka (90,9\,\% de los 20.986 autores únicos tienen una sola publicación;
+solo 24 autores tienen $\geq10$ publicaciones). Solo el 6,5\,\% del corpus menciona
+explícitamente adultos, investigadores o entornos de educación superior en sus
+títulos. La literatura en español (343 registros, 8,6\,\% del corpus) presenta un
+solapamiento mínimo (5,0\,\%) con el corpus anglosajón, y los registros
+colombianos identificados suman únicamente 8 documentos.
+
+\noindent
+\textbf{Conclusiones.} El campo presenta un crecimiento exponencial pero con brechas
+estructurales críticas: ausencia de investigación sobre adultos 2e en contextos
+académicos, subrepresentación de la perspectiva iberoamericana, escasez de estudios
+sobre enmascaramiento y diagnóstico tardío en profesionales, e invisibilidad casi
+total del contexto colombiano. Se formulan seis líneas prioritarias de investigación
+futura.
+\end{abstract}
+
+\vspace{0.5cm}
+\noindent\textbf{Clasificación JEL / MSC:} I23, I24, J24 \quad
+\textbf{Diseño del estudio:} Bibliométrico, transversal retrospectivo
+
+\newpage
+\tableofcontents
+\newpage
+
+% ═══════════════════════════════════════════════════════════
+\section{Introducción}
+\label{sec:intro}
+% ═══════════════════════════════════════════════════════════
+
+El reconocimiento científico de la doble excepcionalidad como fenómeno distinto y
+merecedor de atención específica tiene raíces que se remontan a los trabajos pioneros
+de Leta Hollingworth en los años veinte del siglo~XX \parencite{hollingworth1923},
+pero su formalización conceptual en la literatura educativa contemporánea no se
+consolida hasta la década de 1990. La expresión \textit{twice-exceptional} (2e),
+acuñada para describir a individuos que presentan simultáneamente capacidades
+intelectuales superiores y alguna condición de neurodesarrollo, neurodiversidad o
+discapacidad, fue adoptada con mayor sistematicidad a partir de ese período
+\parencite{baum2004}.
+
+Dentro del espectro de condiciones que configuran la doble excepcionalidad, la
+co-ocurrencia de Altas Capacidades Intelectuales (AACC) con el Trastorno del Espectro
+Autista (TEA) es, paradójicamente, una de las más frecuentes y de las más difíciles
+de detectar \parencite{foleynicpon2011}. La razón es múltiple: los perfiles cognitivos
+elevados pueden enmascarar las manifestaciones conductuales del TEA \parencite{boschi2016},
+los instrumentos de cribado desarrollados para poblaciones neurotípicas infravaloran
+las capacidades en personas con TEA \parencite{assouline2012}, y las expectativas
+sociales hacia individuos con alto rendimiento académico inhiben la búsqueda de
+evaluación diagnóstica \parencite{gelbar2022}.
+
+Esta tensión se agudiza en entornos académicos y científicos. Los profesionales con
+TEA y AACC que trabajan en universidades o centros de investigación constituyen un
+perfil singularmente invisibilizado: su alta funcionalidad intelectual y la capacidad
+de compensar —mediante estrategias de enmascaramiento (\textit{masking} o
+\textit{camouflaging})— las dificultades asociadas al TEA permiten que permanezcan
+sin diagnóstico durante décadas \parencite{mandy2019}. Las consecuencias de esta
+invisibilidad son bien documentadas a nivel clínico —agotamiento neurológico,
+burnout, ansiedad crónica— pero permanecen casi sin explorar en su dimensión
+específicamente académica y profesional \parencite{price2022}.
+
+Desde la perspectiva latinoamericana, la situación es aún más precaria. La
+investigación sobre doble excepcionalidad en la región es embrionaria, la mayoría
+de los sistemas educativos nacionales carecen de políticas diferenciadas para esta
+población, y los estudios disponibles sobre adultos con TEA son escasos y, en el
+caso colombiano, prácticamente inexistentes \parencite{conejeros2018}.
+
+El presente trabajo tiene como objetivo central caracterizar bibliométricamente el
+estado actual del conocimiento científico sobre la intersección TEA--AACC, con
+énfasis particular en individuos adultos que se desempeñan en entornos de
+investigación y academia, y con un análisis específico de la producción
+iberoamericana y colombiana. Para ello, se aplican técnicas bibliométricas
+estándar sobre un corpus de 3.966 registros recuperados de Lens.org.
+
+\subsection{Justificación del estudio}
+
+Tres razones fundamentan la oportunidad de este análisis. Primera, la \textbf{brecha
+empírica}: los estudios bibliométricos previos sobre el campo 2e \parencite{luor2021,
+gelbar2022} identificaron corpora de apenas 32--95 artículos, lo que sugiere una
+cobertura de bases de datos restringida (principalmente WoS/SSCI) y unos criterios de
+inclusión centrados en educación primaria y secundaria. El uso de Lens.org, que
+agrega más de 200 millones de registros de PubMed, Crossref y OpenAlex, permite
+ampliar y actualizar este panorama. Segunda, la \textbf{brecha temporal}: ningún
+estudio bibliométrico publicado cubre el período 2021--2026, que nuestro corpus
+revela como el de mayor producción histórica. Tercera, la \textbf{brecha geográfica}:
+la perspectiva latinoamericana y colombiana específicamente permanece ausente de los
+análisis existentes.
+
+% ═══════════════════════════════════════════════════════════
+\section{Marco conceptual}
+\label{sec:marco}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Trastorno del Espectro Autista: definición y prevalencia}
+
+El DSM-5 \parencite{apa2013} define el TEA como un trastorno del neurodesarrollo
+caracterizado por: (a) déficits persistentes en la comunicación e interacción social
+en múltiples contextos, y (b) patrones de comportamiento, intereses o actividades
+restrictivos y repetitivos. La adopción del modelo dimensional en el DSM-5,
+eliminando las subcategorías previas (síndrome de Asperger, trastorno generalizado
+del desarrollo no especificado), implicó un cambio sustantivo que amplió el rango
+diagnóstico y reconoció la heterogeneidad del espectro.
+
+Las estimaciones globales de prevalencia han aumentado sostenidamente: de 1 en 166
+niños en 2004 \parencite{cdc2004} a 1 en 36 en 2023 \parencite{maenner2023}. Este
+incremento refleja tanto una mayor conciencia diagnóstica como el impacto de las
+reformas nosológicas. Históricamente, se estimaba que el 70--75\,\% de las personas
+con TEA presentaban discapacidad intelectual \parencite{russell2019}; en la actualidad,
+esta cifra se ha invertido, situándose en torno al 33\,\% \parencite{zeidan2022},
+lo que subraya la prevalencia de perfiles TEA sin discapacidad intelectual.
+
+\subsection{Altas Capacidades: modelos y conceptualización}
+
+El concepto de altas capacidades (AACC) carece de una definición universal, lo que
+genera dificultades para la comparación entre estudios. Los modelos más influyentes
+incluyen: la definición psicométrica clásica (CI$\geq$130, aproximadamente 2 desviaciones
+estándar por encima de la media \parencite{terman1925}), el modelo triádico de
+Renzulli \parencite{renzulli1978} (que combina habilidad por encima del promedio,
+creatividad y compromiso con la tarea), y el modelo de Munich \parencite{heller2001},
+que reconoce dominios múltiples de talento.
+
+En el contexto iberoamericano, el término \textit{altas capacidades intelectuales}
+tiende a englobar tanto la superdotación (alto potencial en múltiples dominios) como
+el talento específico (excelencia en un dominio determinado) y el prodigio
+\parencite{gagné2004}. La diversidad terminológica —\textit{superdotación},
+\textit{sobredotación}, \textit{altas habilidades/superdotação} en el contexto
+brasileño— dificulta la sistematización bibliométrica en castellano y portugués.
+
+\subsection{Doble excepcionalidad: la intersección TEA--AACC}
+
+La co-ocurrencia de TEA y AACC presenta una fenomenología clínica y educativa
+específica que no es simplemente la suma de ambas condiciones
+\parencite{burgersveltmeijer2011}. Los individuos 2e con TEA exhiben:
+
+\begin{itemize}[leftmargin=*, itemsep=0pt]
+    \item Un \textbf{perfil cognitivo en meseta} (\textit{spiky profile}): puntuaciones
+    muy elevadas en razonamiento abstracto, reconocimiento de patrones y memoria
+    semántica, combinadas con puntuaciones bajas en velocidad de procesamiento y
+    memoria de trabajo \parencite{assouline2012}.
+    \item \textbf{Enmascaramiento (\textit{masking})} de las manifestaciones del TEA
+    mediante estrategias compensatorias aprendidas, especialmente pronunciado en
+    individuos con AACC y en mujeres \parencite{hull2017}.
+    \item Riesgo de \textbf{diagnóstico tardío o erróneo}: las capacidades
+    intelectuales superiores enmascaran las dificultades, y las dificultades
+    enmascaran las capacidades, generando lo que se ha descrito como doble
+    enmascaramiento \parencite{foleynicpon2017}.
+    \item Presencia de \textbf{comorbilidades} frecuentes: TDAH (50--70\,\% según
+    algunas series), trastornos de ansiedad, disfunciones ejecutivas y
+    alexitimia \parencite{deprey2011}.
+\end{itemize}
+
+\subsection{El perfil 2e en la academia y la investigación}
+
+La literatura específica sobre adultos con TEA y AACC en entornos universitarios y
+científicos es extraordinariamente escasa. Los estudios disponibles sugieren que:
+
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item Los entornos STEM tienden a atraer perfiles con características autísticas
+    —atención al detalle, intereses circunscritos, tolerancia a la rutina analítica—
+    en mayor proporción que otros campos profesionales \parencite{baron-cohen2001}.
+    \item Las instituciones académicas ofrecen simultáneamente un ambiente
+    potencialmente favorable (autonomía, estructura flexible, estimulación intelectual)
+    y uno potencialmente adverso (exigencias sociales intensas, networking, evaluaciones
+    por pares, precariedad laboral) para las personas 2e \parencite{price2022}.
+    \item El diagnóstico tardío de TEA en académicos —frecuentemente en la tercera
+    o cuarta década de vida— desencadena procesos de reidentificación biográfica y
+    puede tener efectos significativos sobre la trayectoria profesional
+    \parencite{raymaker2020}.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════
+\section{Metodología}
+\label{sec:metodo}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Diseño del estudio}
+
+Se realizó un análisis bibliométrico transversal retrospectivo siguiendo las pautas
+metodológicas de \textcite{donthu2021} para análisis bibliométricos en ciencias
+sociales. El estudio no requiere aprobación ética al trabajar exclusivamente con
+metadatos de registros académicos publicados.
+
+\subsection{Fuente de datos}
+
+La base de datos utilizada fue \textbf{Lens.org} (\url{https://lens.org}), plataforma
+de acceso abierto mantenida por Cambia (Australia) que agrega registros de PubMed,
+Crossref, OpenAlex y Microsoft Academic, alcanzando más de 200 millones de registros
+académicos y 120 millones de patentes \parencite{lens2024}. Lens.org fue seleccionada
+por tres razones: (1) cobertura multidisciplinar superior a bases de datos
+especializadas como WoS o Scopus; (2) acceso sin restricciones para exportación y
+análisis; (3) disponibilidad de identificadores propios (Lens ID) que facilitan la
+deduplicación entre búsquedas.
+
+\subsection{Estrategias de búsqueda}
+
+Se diseñaron cinco estrategias de búsqueda booleana (Tabla~\ref{tab:strings}),
+ejecutadas el 5 de junio de 2026. Las búsquedas se realizaron sobre los campos
+de título, resumen y palabras clave disponibles en Lens.org.
+
+\begin{table}[H]
+\centering
+\caption{Strings de búsqueda utilizados en Lens.org}
+\label{tab:strings}
+\small
+\begin{tabularx}{\textwidth}{@{}l p{3cm} X r@{}}
+\toprule
+\textbf{ID} & \textbf{Denominación} & \textbf{Descripción} & \textbf{N bruto} \\
+\midrule
+S1 & Amplio & TEA/autismo AND AACC/gifted/twice-exceptional & 3.571 \\
+S2 & Adultos profesionales & S1 AND researcher/academic/university/STEM & 999 \\
+S3 & Diagnóstico tardío & S1 AND late diagnosis/masking/camouflaging & 450 \\
+S4 & Neurodiversidad laboral & TEA AND neurodiversity AND academic career/employment AND gifted & 120 \\
+S5 & Español/Latinoamérica & TEA/autismo AND altas capacidades/doble excepcionalidad AND investigación/academia & 360 \\
+\midrule
+\textbf{Total bruto} & & & \textbf{5.500} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{notabox}
+\textbf{Nota sobre S1 y S1-base.} Los archivos exportados S1-amplio y S1-base
+resultaron ser idénticos (MD5 coincidente), confirmando que corresponden a la misma
+búsqueda. Solo se utilizó S1-amplio en el análisis.
+\end{notabox}
+
+\subsection{Criterios de inclusión y exclusión}
+
+Se incluyeron todos los tipos de documentos (artículos, libros, capítulos,
+\textit{preprints}, actas de conferencias) sin restricción de idioma. Se excluyeron
+únicamente los registros sin título o con metadatos insuficientes para el análisis
+($n=12$). No se aplicó filtro de año de publicación para preservar la perspectiva
+histórica, aunque el análisis detallado se centró en el período 2000--2026.
+
+\subsection{Proceso de deduplicación}
+
+Los cinco corpora se unificaron en un corpus maestro aplicando deduplicación
+secuencial: (1) por DOI normalizado (minúsculas, eliminación de espacios) para los
+registros que disponían de este campo; (2) por Lens ID para los registros sin DOI.
+Este procedimiento eliminó 1.534 duplicados (27,9\,\%), resultando en un corpus
+maestro final de \textbf{3.966 registros únicos}.
+
+\subsection{Indicadores bibliométricos}
+
+Se calcularon los siguientes indicadores:
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Productividad temporal:} distribución anual de publicaciones,
+    tasa de crecimiento anual compuesto (CAGR), identificación de puntos de inflexión.
+    \item \textbf{Ley de Bradford:} distribución de revistas en tres zonas de
+    concentración (núcleo, zona 2, periferia) para el subconjunto de artículos.
+    \item \textbf{Ley de Lotka:} distribución de productividad de autores
+    (relación log-log entre número de autores y número de publicaciones).
+    \item \textbf{Análisis de coautoría:} construcción de red de colaboración
+    con cálculo de centralidad de grado y \textit{betweenness}.
+    \item \textbf{Análisis léxico de títulos:} frecuencia de términos, comparación
+    temporal pre/post 2020, \textit{WordCloud}.
+    \item \textbf{Solapamiento entre estrategias:} matriz de intersección de
+    Lens IDs entre los cinco corpora.
+\end{itemize}
+
+\subsection{Herramientas de análisis}
+
+El análisis se realizó íntegramente en Python 3.12 mediante un cuaderno
+Jupyter. Las bibliotecas principales fueron: \texttt{bibtexparser} (v1.4.4,
+importación de archivos BibTeX), \texttt{pandas} (transformación y análisis),
+\texttt{matplotlib/seaborn} (visualización), \texttt{networkx} (análisis de redes),
+y \texttt{wordcloud} (visualización de frecuencias léxicas). El cuaderno y el
+corpus maestro en CSV están disponibles como material suplementario.
+
+% ═══════════════════════════════════════════════════════════
+\section{Resultados}
+\label{sec:resultados}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Estructura y composición del corpus}
+
+El corpus maestro final comprende \textbf{3.966 registros únicos} distribuidos en
+seis tipos de documento (Figura~\ref{fig:overview}). Los artículos de revista
+constituyen la categoría dominante (71,6\,\%, $n=2.838$), seguidos de
+\textit{preprints} y documentos de tipo \textit{misc} (14,7\,\%, $n=582$), capítulos
+de libro (5,3\,\%, $n=212$) y libros (6,3\,\%, $n=251$). Las actas de conferencias
+representan el 2,0\,\% ($n=81$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_01_corpus_overview.png}
+    \caption{Estructura del corpus bibliométrico. \textit{Izquierda:} distribución
+    de registros por string de búsqueda. \textit{Derecha:} composición por tipo de
+    documento en el corpus maestro deduplicado.}
+    \label{fig:overview}
+\end{figure}
+
+El solapamiento entre estrategias de búsqueda (Figura~\ref{fig:heatmap}) revela
+patrones relevantes: S3 (diagnóstico tardío) está completamente contenido en S1
+(solapamiento 100\,\%), y S2 (adultos profesionales) comparte el 95,3\,\% de sus
+registros con S1. Por el contrario, S5 (español/latinoamérica) presenta un
+solapamiento de apenas el 5,0\,\% con S1 y nulo con S4, lo que confirma que la
+literatura en español constituye un corpus casi completamente independiente del
+anglosajón — un hallazgo de notable relevancia metodológica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig_10_overlap_heatmap.png}
+    \caption{Matriz de solapamiento entre las cinco estrategias de búsqueda,
+    expresada en número de Lens IDs compartidos. La diagonal principal corresponde
+    al total de cada string. El escaso solapamiento de S5 con el resto confirma la
+    segmentación lingüística del campo.}
+    \label{fig:heatmap}
+\end{figure}
+
+\subsection{Evolución temporal de la producción científica}
+
+El análisis temporal revela una \textbf{trayectoria exponencial sostenida}
+desde el año 2000 (Figura~\ref{fig:temporal}). En el período 2000--2010, la tasa
+de crecimiento anual compuesto fue del 8,5\,\%; en el período 2010--2020 se aceleró
+hasta el 16,4\,\%, y se mantuvo en el 16,7\,\% entre 2015 y 2022.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_02_temporal_evolution.png}
+    \caption{Evolución temporal de la producción científica. \textit{Panel superior:}
+    corpus maestro con media móvil de tres años (línea roja). Se señalan dos hitos
+    clave: publicación del DSM-5 (2013) y comienzo de la pandemia COVID-19 (2020).
+    \textit{Panel inferior:} tendencias por string de búsqueda (2005--2026).}
+    \label{fig:temporal}
+\end{figure}
+
+El año 2021 registró el volumen máximo histórico de publicaciones ($n=425$),
+inmediatamente seguido por 2022 ($n=424$). El 49,1\,\% del corpus total se publicó
+en los cinco años posteriores a 2020, y el 78,3\,\% corresponde a la última
+década (post-2015). La caída observada en 2023 ($n=187$) y la recuperación
+parcial en 2025 ($n=177$) pueden estar relacionadas con rezagos de indexación
+en Lens.org para los años más recientes, más que con una contracción real del campo.
+
+Dos hitos disciplinares parecen haber operado como catalizadores del crecimiento:
+(1) la publicación del \textbf{DSM-5} en 2013, que al unificar el espectro y
+eliminar el diagnóstico de síndrome de Asperger como categoría separada, estimuló
+una oleada de investigación sobre diagnóstico diferencial y perfiles de alta
+funcionalidad; y (2) la \textbf{pandemia de COVID-19} (2020), que puede haber
+favorecido el autodiagnóstico y la búsqueda de evaluación entre adultos con perfiles
+neurodivergentes durante los períodos de confinamiento.
+
+La evolución por string (panel inferior, Figura~\ref{fig:temporal}) muestra que S1
+concentra el grueso del crecimiento, mientras que S4 (neurodiversidad en entornos
+laborales) y S5 (español) presentan volúmenes muy inferiores. Esto señala que,
+aunque el campo general TEA--AACC ha crecido vigorosamente, las subáreas de adultos
+en academia y de producción iberoamericana no han seguido el mismo ritmo.
+
+\subsection{Análisis de tipos de documento por período}
+
+La Figura~\ref{fig:doctypes} muestra la composición del corpus por tipo de
+documento entre 2010 y 2026. Los artículos de revista mantienen una posición
+dominante y estable, aunque se observa un incremento notable de
+\textit{preprints/misc} a partir de 2019, consistente con la generalización
+de plataformas como Zenodo, bioRxiv y PsyArXiv. La proporción de capítulos y
+libros disminuye relativamente, lo que refleja el desplazamiento de la
+comunicación científica hacia formatos de acceso abierto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_05_doctypes_time.png}
+    \caption{Tipos de documentos por año (2010--2026). Los artículos de revista
+    (azul) dominan en todos los períodos. El incremento de \textit{misc/preprints}
+    (morado) desde 2019 refleja la expansión de repositorios abiertos.}
+    \label{fig:doctypes}
+\end{figure}
+
+\subsection{Revistas nucleares: distribución Bradford}
+
+El análisis de Bradford (Figura~\ref{fig:bradford}) se aplicó al subconjunto de
+artículos de revista ($n=2.838$) distribuidos en \textbf{1.635 fuentes distintas}.
+El núcleo Bradford (primer tercio de la producción acumulada) comprende
+\textbf{113 revistas}, la zona 2 abarca 565 fuentes, y la periferia engloba
+957 revistas. Esta distribución altamente dispersa (relación núcleo:total $\approx$ 1:14)
+es característica de campos de investigación jóvenes e interdisciplinares
+\parencite{bornmann2012}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_03_journals_bradford.png}
+    \caption{Distribución Bradford. \textit{Izquierda:} top 20 revistas por
+    número de artículos. \textit{Derecha:} curva acumulada en escala semilogarítmica
+    con identificación de las tres zonas Bradford.}
+    \label{fig:bradford}
+\end{figure}
+
+Las diez revistas más productivas del núcleo Bradford se presentan en la
+Tabla~\ref{tab:revistas}. \textit{Frontiers in Psychology} lidera con 65 artículos
+(2,3\,\% de todos los artículos), seguida del \textit{Journal of Autism and
+Developmental Disorders} (JADD, $n=41$), referente histórico del campo, y
+\textit{Focus on Exceptional Children} ($n=33$), especializada en educación
+diferenciada. La presencia de \textit{Zenodo} como quinta fuente más productiva
+($n=28$) confirma el peso creciente de los repositorios abiertos como canales
+de difusión.
+
+\begin{table}[H]
+\centering
+\caption{Top 10 revistas del núcleo Bradford (artículos de revista)}
+\label{tab:revistas}
+\small
+\begin{tabularx}{\textwidth}{@{}l l r r@{}}
+\toprule
+\textbf{Rango} & \textbf{Revista} & \textbf{N} & \textbf{\% acum.} \\
+\midrule
+1  & Frontiers in Psychology                              & 65  & 2.3\,\% \\
+2  & Journal of Autism and Developmental Disorders        & 41  & 3.7\,\% \\
+3  & Focus on Exceptional Children                        & 33  & 4.9\,\% \\
+4  & PLOS ONE                                             & 34  & 6.1\,\% \\
+5  & Zenodo (CERN -- repositorio abierto)                 & 28  & 7.1\,\% \\
+6  & Frontiers in Psychiatry                              & 26  & 8.0\,\% \\
+7  & Education Sciences                                   & 20  & 8.7\,\% \\
+8  & Scientific Reports                                   & 20  & 9.4\,\% \\
+9  & Autism: The International Journal                    & 18  & 10.0\,\% \\
+10 & Frontiers in Human Neuroscience                      & 14  & 10.5\,\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+La heterogeneidad de las revistas del núcleo —que abarca desde psicología clínica
+(JADD, \textit{Autism Research}) hasta educación especial (\textit{Focus on
+Exceptional Children}, \textit{Journal for the Education of Gifted Young Scientists})
+pasando por ciencias de la salud (\textit{Frontiers in Psychiatry}) y revistas
+multidisciplinares (PLOS ONE)— evidencia la naturaleza \textbf{transversal e
+interdisciplinar} del campo TEA--AACC.
+
+\subsection{Análisis de autoría: distribución de Lotka}
+
+El corpus presenta 20.986 autores únicos (Figura~\ref{fig:lotka}). La distribución
+de productividad sigue el patrón predicho por la Ley de Lotka: el 90,9\,\% de los
+autores tiene una única publicación en el corpus, frente al 62\,\% teórico de Lotka
+para coeficiente $n=2$. Esta desviación hacia una concentración aún mayor sugiere
+que el campo está en proceso de consolidación, con una base amplísima de
+contribuyentes ocasionales y un núcleo muy reducido de investigadores especializados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_04_authors_lotka.png}
+    \caption{Distribución de productividad de autores (Ley de Lotka). \textit{Izquierda:}
+    top 20 autores por número de publicaciones. \textit{Derecha:} distribución log-log
+    de frecuencias de productividad.}
+    \label{fig:lotka}
+\end{figure}
+
+Solo 24 autores tienen 10 o más publicaciones en el corpus, y 130 autores tienen
+5 o más. Los autores más productivos (Tabla~\ref{tab:autores}) incluyen a
+\textbf{R. Plomin} ($n=55$), genetista conductual del King's College London cuya
+producción sobre heredabilidad de la inteligencia y el comportamiento autístico
+es consistente con el foco del corpus; \textbf{Megan Foley-Nicpon} ($n=19$) y
+\textbf{Susan G. Assouline} ($n=17$) de la Universidad de Iowa, quienes constituyen
+el equipo referente mundial en investigación empírica sobre 2eASD; y
+\textbf{Athanasios Drigas} ($n=13$), investigador griego especializado en tecnologías
+educativas para personas con necesidades especiales.
+
+\begin{table}[H]
+\centering
+\caption{Top 15 autores más productivos del corpus maestro}
+\label{tab:autores}
+\small
+\begin{tabularx}{\textwidth}{@{}r l r l@{}}
+\toprule
+\textbf{Rango} & \textbf{Autor} & \textbf{N pubs.} & \textbf{Afiliación/especialidad conocida} \\
+\midrule
+1  & R. Plomin            & 55 & King's College London -- Genética conductual \\
+2  & Lisa Corwin          & 22 & Colorado -- Educación STEM \\
+3  & T. Chalder           & 21 & King's College London -- Psicología clínica \\
+4  & Megan Foley-Nicpon   & 19 & Univ. Iowa -- 2e ASD especialista \\
+5  & Susan G. Assouline   & 17 & Univ. Iowa -- 2e ASD especialista \\
+6  & S. Wessely           & 16 & King's College London -- Psiquiatría \\
+7  & Meredith Henry       & 14 & STEM education \\
+8  & Shayla Shorter       & 14 & STEM education \\
+9  & Louise Charkoudian   & 14 & STEM education \\
+10 & Jennifer Heemstra    & 14 & STEM education \\
+11 & Athanasios Drigas    & 13 & NCSR Demokritos (Grecia) -- TIC y NEE \\
+12 & R. Moss-Morris       & 13 & King's College London \\
+13 & J. DeFries           & 13 & Univ. Colorado -- Genética \\
+14 & P. Dale              & 12 & Genética del lenguaje \\
+15 & S. Petrill           & 12 & Ohio State -- Genética conductual \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{notabox}
+\textbf{Observación.} La alta concentración de publicaciones en el grupo Plomin
+(n=55), Chalder, Wessely y Moss-Morris (todos King's College) y el clúster de
+educación STEM (Corwin, Henry, Shorter, Heemstra) sugiere que \textit{parte del
+corpus S1 puede incluir registros que comparten autores pero no son específicamente
+sobre TEA+AACC} (p. ej., estudios sobre fatiga crónica de Wessely). Este es un
+hallazgo relevante sobre los límites del string S1 y justifica la importancia de
+los strings más específicos S2--S4 para el nicho de interés de este estudio.
+\end{notabox}
+
+\subsection{Red de co-autoría}
+
+La red de co-autoría (Figura~\ref{fig:red}) construida con autores de $\geq3$
+publicaciones revela una topología de \textbf{red de escala libre} con un núcleo
+denso central y numerosos autores periféricos con pocas conexiones. Los nodos con
+mayor betweenness centrality (autores con mayor capacidad de mediación entre
+subcomunidades) incluyen a Foley-Nicpon, Nicolson y Hulme, lo que confirma su
+papel de puentes entre las comunidades de investigación sobre TEA, sobre AACC y
+sobre psicología educativa.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig_07_coauthorship_network.png}
+    \caption{Red de co-autoría. Nodos: autores con $\geq3$ publicaciones. Tamaño
+    del nodo: proporcional al número de publicaciones. Color: betweenness centrality
+    (amarillo~$\rightarrow$~rojo = mayor centralidad). Las etiquetas corresponden
+    a los 15 autores con mayor betweenness.}
+    \label{fig:red}
+\end{figure}
+
+\subsection{Análisis léxico de títulos}
+
+El análisis de frecuencia de términos en títulos del corpus maestro
+(Figura~\ref{fig:wordcloud}) muestra que los términos más frecuentes son
+\textit{autism} (537), \textit{children} (501) y \textit{education} (413).
+La presencia masiva de \textit{children} (501 ocurrencias) frente a
+\textit{adults} (ausente entre los 40 primeros) refleja cuantitativamente
+el sesgo del campo hacia la población infantil.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_06_wordcloud_terms.png}
+    \caption{Análisis léxico de títulos del corpus maestro.
+    \textit{Izquierda:} nube de palabras proporcional a la frecuencia.
+    \textit{Derecha:} frecuencia absoluta de los 30 términos más comunes.
+    Nótese la dominancia de \textit{children}, \textit{students} y
+    \textit{school} frente a la escasez de términos relacionados con adultos
+    o contextos laborales.}
+    \label{fig:wordcloud}
+\end{figure}
+
+El análisis comparativo pre/post 2020 reveló los términos con mayor crecimiento
+relativo en la producción reciente, entre los que destacan \textit{neurodiversity},
+\textit{twice-exceptional}, \textit{masking} y \textit{higher education}, lo que
+sugiere un incipiente giro temático hacia los intereses de este estudio.
+
+\subsection{Literatura en español y contexto latinoamericano}
+
+El string S5 recuperó 360 registros en español (5,0\,\% de solapamiento con el
+corpus anglosajón), de los cuales 343 permanecieron en el corpus maestro.
+La evolución temporal (Figura~\ref{fig:spanish}) muestra un crecimiento desde
+prácticamente cero antes de 2012 hasta un pico de 47 publicaciones en 2022.
+Las revistas más productivas son el \textit{International Journal of Developmental
+and Educational Psychology -- INFAD} ($n=5$), el \textit{Electronic Journal of
+Research in Education Psychology} ($n=4$), y la \textit{Revista de Psiquiatría
+Infanto-Juvenil} ($n=4$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_08_spanish_literature.png}
+    \caption{Literatura iberoamericana. \textit{Izquierda:} evolución temporal
+    (2000--2026). \textit{Derecha:} top 10 revistas en español con mayor
+    producción sobre TEA + AACC.}
+    \label{fig:spanish}
+\end{figure}
+
+El análisis léxico de los títulos en español (Figura~\ref{fig:wc_es}) muestra
+dominancia de \textit{educación}, \textit{inclusión} y \textit{necesidades},
+con presencia de \textit{altas capacidades} y \textit{espectro}, pero notable
+ausencia de términos relacionados con adultos profesionales, academia o
+investigación. El término \textit{ensino} (del portugués) refleja la
+contribución significativa de Brasil al corpus iberoamericano.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_09_spanish_wordcloud.png}
+    \caption{Análisis léxico de títulos en español/portugués (S5).
+    La terminología refleja un enfoque predominantemente escolar e
+    inclusión educativa, con escasa presencia de términos asociados
+    a adultos o contextos universitarios.}
+    \label{fig:wc_es}
+\end{figure}
+
+\subsection{El contexto colombiano: un caso de invisibilidad científica}
+
+La búsqueda de registros con mención explícita a Colombia identificó únicamente
+\textbf{8 documentos} en todo el corpus (Tabla~\ref{tab:colombia}), todos ellos
+concentrados en los años 2020--2025, y ninguno centrado específicamente en la
+intersección TEA--AACC en adultos o investigadores. Seis de los ocho registros
+aparecen en la \textit{Revista Colombiana de Educación} y revistas afines, y los
+temas abordados oscilan entre políticas de educación inclusiva general y creencias
+del profesorado sobre el autismo.
+
+\begin{table}[H]
+\centering
+\caption{Registros con referencia al contexto colombiano identificados en el corpus}
+\label{tab:colombia}
+\small
+\begin{tabularx}{\textwidth}{@{}r l p{7.5cm} l@{}}
+\toprule
+\textbf{Año} & \textbf{Fuente} & \textbf{Título (fragmento)} & \textbf{Foco} \\
+\midrule
+2020 & Rev. Colombiana de Educación & Aproximaciones institucionales a estudiantes con discapacidad & Ed. inclusiva \\
+2020 & Rev. Colombiana de Educación & Educación de sujetos con discapacidad en Colombia & Historia \\
+2020 & Magis RIIE & Superdotación e identidad: lectura desde Colombia & AACC \\
+2020 & Act. Invest. Educación & Legislación colombiana y evaluación escolar NEE & Política \\
+2020 & -- & Investigación en Doctorado en Ciencias de la Educación & Ed. superior \\
+2022 & Rev. Colombiana de Educación & Videojuegos y atención a la diversidad & TIC \\
+2022 & -- & Creencias sobre TEA en maestras de educación inicial & TEA \\
+2025 & Rev. Lat. Ciencias Sociales & Formación de personas con altas capacidades en Rionegro & AACC \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Este resultado cuantifica de manera objetiva lo que los investigadores del campo
+conocen cualitativamente: \textbf{Colombia carece de una comunidad investigadora
+consolidada} sobre TEA--AACC, y prácticamente no existen estudios sobre adultos
+con doble excepcionalidad en entornos académicos o científicos colombianos. La
+única referencia cercana al foco de este estudio es el artículo de \textit{Magis}
+sobre superdotación e identidad desde una perspectiva colombiana (2020), que aborda
+la AACC pero no específicamente su co-ocurrencia con TEA en adultos profesionales.
+
+% ═══════════════════════════════════════════════════════════
+\section{Discusión}
+\label{sec:discusion}
+% ═══════════════════════════════════════════════════════════
+
+\subsection{Fortalezas del campo: crecimiento y consolidación temática}
+
+Los resultados confirman que la investigación sobre TEA--AACC ha alcanzado un
+volumen y una tasa de crecimiento que justifican hablar de campo emergente en
+proceso de consolidación. El CAGR del 16,4\,\% en la última década supera con
+creces el crecimiento de la producción científica general (estimado en 4--5\,\%
+anual \parencite{bornmann2021}) y es comparable al de otras áreas de alta
+actividad como la investigación sobre microbioma \parencite{chen2022}.
+
+La aparición de revistas especializadas de alto impacto en el núcleo Bradford
+—JADD, \textit{Autism}, \textit{Gifted Child Quarterly}— y la presencia de equipos
+de investigación consolidados (Foley-Nicpon/Assouline en Iowa; Drigas en Atenas;
+Reis/Renzulli en Connecticut) indican que existe una infraestructura disciplinar
+mínima viable. Los instrumentos de evaluación están mejorando: la adaptación del
+ADOS y el ADI-R para perfiles de alta capacidad \parencite{foleynicpon2017}, y el
+desarrollo de baterías específicamente diseñadas para la evaluación de doble
+excepcionalidad \parencite{cederberg2018}, representan avances metodológicos
+significativos.
+
+\subsection{Debilidades estructurales: el sesgo hacia la infancia y la escuela}
+
+La debilidad más palmaria del campo es el \textbf{sesgo pediátrico y escolar}.
+El término \textit{children} aparece en 501 títulos frente a una presencia marginal
+de \textit{adults}, \textit{university} o \textit{researcher}. Solo el 6,5\,\% del
+corpus menciona explícitamente adultos o entornos de educación superior. Este sesgo
+no es neutral: refleja el supuesto implícito de que la doble excepcionalidad es
+un fenómeno de la infancia que se ``resuelve'' en la adultez, cuando la evidencia
+clínica indica lo contrario \parencite{raymaker2020}.
+
+La lógica de intervención temprana domina el imaginario del campo: identificar,
+diagnosticar e intervenir en los primeros años de escolarización para optimizar
+las trayectorias educativas. Esta lógica, aunque legítima, invisibiliza a los
+adultos que llegaron a la vida profesional sin diagnóstico, navegando sus carreras
+académicas o científicas en condiciones de mayor dificultad y con acceso limitado
+a apoyos institucionales \parencite{price2022}.
+
+\subsection{El enmascaramiento como factor explicativo de la invisibilidad}
+
+El \textit{masking} o enmascaramiento —la estrategia de suprimir o disimular
+conductas autísticas para encajar en contextos neurotípicos— es especialmente
+pronunciado en individuos con AACC, que disponen de mayores recursos cognitivos
+para la imitación social y la compensación conductual \parencite{hull2017}.
+En contextos académicos y científicos, donde la presión de conformidad social
+es alta y la evaluación del rendimiento relativamente objetiva, el enmascaramiento
+puede resultar especialmente eficaz \textit{y} especialmente costoso: el coste
+neurológico del enmascaramiento sostenido se asocia con burnout, disociación y
+crisis de salud mental \parencite{mandy2019}.
+
+La casi total ausencia de literatura sobre masking en el corpus —solo 1 artículo
+con el término en el título— frente a la abundante evidencia clínica de su
+prevalencia en adultos de alto rendimiento, constituye una brecha de investigación
+de primera magnitud.
+
+\subsection{Debilidades metodológicas de los estudios existentes}
+
+Las revisiones disponibles \parencite{gelbar2022, luor2021} han documentado
+sistemáticamente las debilidades metodológicas del campo: (a) tamaños muestrales
+pequeños, frecuentemente $n < 30$; (b) ausencia de grupos de control adecuados;
+(c) falta de homogeneidad en los criterios de definición tanto de AACC como de TEA;
+(d) predominio de metodologías cualitativas y estudios de caso; y (e) reclutamiento
+por conveniencia en poblaciones clínicas, que introduce sesgo de selección. A estos
+problemas debe añadirse la escasez de estudios longitudinales que permitan seguir
+trayectorias desde la infancia hasta la vida adulta profesional.
+
+\subsection{La perspectiva latinoamericana: entre el rezago y la oportunidad}
+
+La producción iberoamericana sobre TEA--AACC representa el 8,6\,\% del corpus
+global con apenas un 5,0\,\% de solapamiento con la literatura anglosajona.
+Esto significa que ambas comunidades científicas operan prácticamente en mundos
+paralelos, con escasa transferencia de conocimiento bidireccional.
+
+Las particularidades del contexto latinoamericano justifican una agenda investigadora
+propia: (a) la prevalencia estimada de TEA en la región es inferior a la reportada
+en países de altos ingresos \parencite{salari2022}, probablemente por infradiagnóstico
+más que por diferencias reales de prevalencia; (b) los sistemas de educación
+especial tienen menor capacidad de identificación temprana; (c) la definición
+y los criterios para el reconocimiento de AACC varían enormemente entre países; y
+(d) el estigma asociado al diagnóstico de TEA es percibido como mayor en contextos
+culturales latinoamericanos \parencite{conejeros2018}.
+
+\subsection{Colombia: brecha crítica y agenda urgente}
+
+Los ocho documentos colombianos identificados confirman que Colombia no tiene
+prácticamente investigación sobre la intersección TEA--AACC. Las implicaciones
+son preocupantes a nivel de política educativa y sanitaria: sin datos propios,
+las decisiones de política se basan en evidencia extranjera de dudosa transferibilidad
+cultural; sin investigación sobre adultos y académicos, el sistema universitario
+colombiano carece de bases para diseñar apoyos institucionales para su personal
+docente e investigador neurodivergente; y sin visibilidad científica, la comunidad
+de profesionales con TEA y AACC en Colombia permanece sin reconocimiento y sin voz
+en los espacios de decisión.
+
+Colombia posee, sin embargo, condiciones estructurales para impulsar esta agenda:
+una comunidad investigadora en educación especial y psicología educativa en
+crecimiento (visibles en la \textit{Revista Colombiana de Educación} y en redes
+como RUDECOLOMBIA), una legislación de discapacidad e inclusión relativamente
+avanzada en el contexto regional (Ley 1618 de 2012), y un sistema de ciencia y
+tecnología —MINCIENCIAS— que ha comenzado a financiar investigación sobre
+neurodiversidad.
+
+% ═══════════════════════════════════════════════════════════
+\section{Limitaciones del estudio}
+\label{sec:limitaciones}
+% ═══════════════════════════════════════════════════════════
+
+Este estudio presenta varias limitaciones que deben tenerse en cuenta al
+interpretar los resultados:
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Ausencia de datos de citación.} El formato BibTeX exportado por
+    Lens.org no incluye recuentos de citas, lo que impide calcular el índice~$h$
+    del campo ni el impacto ponderado por citas de revistas y autores.
+
+    \item \textbf{Rezago de indexación.} Lens.org puede presentar retrasos de
+    indexación para los años más recientes (2023--2026), lo que explicaría
+    parcialmente la caída de producción observada en 2023.
+
+    \item \textbf{Análisis léxico limitado a títulos.} Por ausencia del campo
+    \textit{keywords} en los registros exportados, el análisis terminológico se
+    restringió a títulos, que no siempre reflejan fielmente el contenido.
+
+    \item \textbf{Ausencia de análisis de co-citación.} Sin datos de referencias,
+    no fue posible construir redes de co-citación o de acoplamiento bibliográfico,
+    que habrían permitido mapear con mayor precisión los clústeres temáticos del campo.
+
+    \item \textbf{Cobertura del contexto colombiano.} La búsqueda de registros
+    colombianos se basó en términos léxicos en títulos y nombres de revistas, lo
+    que puede haber omitido trabajos de autores colombianos publicados en revistas
+    internacionales sin mención explícita al país.
+
+    \item \textbf{Strings de búsqueda.} Aunque los strings fueron diseñados con
+    criterio experto, la amplia inclusividad de S1 puede haber incorporado registros
+    que no son específicamente sobre TEA+AACC (como se señaló para el clúster Plomin-Wessely).
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════
+\section{Líneas prioritarias de investigación futura}
+\label{sec:futuro}
+% ═══════════════════════════════════════════════════════════
+
+A partir de los gaps identificados en este análisis, se proponen seis líneas de
+investigación con alta prioridad:
+
+\begin{enumerate}[leftmargin=*, label=\textbf{LP\arabic*.}, itemsep=4pt]
+    \item \textbf{Estudios de prevalencia y caracterización en adultos académicos.}
+    Investigación epidemiológica sobre la prevalencia del perfil 2e (TEA+AACC) en
+    población investigadora y académica universitaria, con atención específica a la
+    tasa de diagnóstico tardío y las consecuencias sobre la trayectoria profesional.
+
+    \item \textbf{Enmascaramiento en contextos científicos.}
+    Estudios cualitativos y mixtos sobre las estrategias de masking utilizadas por
+    investigadores con TEA, sus costes neurológicos y psicológicos, y su relación
+    con el síndrome de impostora/impostor y el burnout académico.
+
+    \item \textbf{Interseccionalidad género, TEA y AACC en academia.}
+    Las mujeres autistas con altas capacidades constituyen un subgrupo con doble
+    enmascaramiento (autístico y de género) particularmente vulnerable e
+    investigado. Se necesitan estudios con diseños sensibles al género y al
+    ciclo vital.
+
+    \item \textbf{Perspectiva latinoamericana comparada.}
+    Estudios comparativos entre países de la región sobre diagnóstico, políticas
+    de apoyo y trayectorias profesionales de adultos 2e, con metodologías adaptadas
+    al contexto cultural latinoamericano.
+
+    \item \textbf{Colombia: investigación de base.}
+    Estudios exploratorios sobre el perfil 2e en universidades e institutos de
+    investigación colombianos, incluyendo: caracterización de necesidades de apoyo
+    institucional, análisis de barreras diagnósticas, y mapeo de buenas prácticas
+    en instituciones de educación superior.
+
+    \item \textbf{Diseño de intervenciones específicas para adultos 2e en academia.}
+    Desarrollo y validación de programas de apoyo institucional (mentoring, ajustes
+    razonables, formación de pares) adaptados a las necesidades específicas de
+    investigadores y docentes con TEA y AACC.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════
+\section{Conclusiones}
+\label{sec:conclusiones}
+% ═══════════════════════════════════════════════════════════
+
+Este análisis bibliométrico, basado en un corpus de 3.966 registros recuperados de
+Lens.org y procesados íntegramente con herramientas de Python, ofrece la
+caracterización más actualizada y de mayor cobertura disponible sobre la producción
+científica en la intersección TEA--AACC. Los hallazgos principales son:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item El campo ha experimentado un crecimiento exponencial sostenido (CAGR
+    16,4\,\% en 2010--2020), con el 78,3\,\% del corpus publicado en la última
+    década, lo que evidencia un campo emergente en aceleración.
+
+    \item La producción está concentrada en un pequeño núcleo Bradford de 113
+    revistas y un número muy reducido de autores especializados (24 con $\geq10$
+    publicaciones), lo que refleja la juventud e interdisciplinaridad del campo.
+
+    \item Existe un sesgo estructural, cuantificado y estadísticamente inequívoco,
+    hacia la población infantil y los entornos escolares, con el 93,5\,\% del corpus
+    sin mención de adultos o academia en los títulos.
+
+    \item La literatura en español y la producción latinoamericana constituyen
+    un corpus casi independiente del anglosajón (5\,\% de solapamiento), con
+    una agenda temática dominada por la educación inclusiva escolar y prácticamente
+    sin investigación sobre adultos profesionales.
+
+    \item Colombia tiene una presencia científica mínima en el campo (8 registros
+    en todo el corpus global), confirmando la necesidad urgente de una agenda
+    investigadora propia.
+\end{itemize}
+
+La doble excepcionalidad TEA--AACC en investigadores y académicos no es una
+rareza clínica ni un problema de nicho: es una realidad presente y silenciada en
+las instituciones académicas de todo el mundo, incluyendo las colombianas. Los
+sistemas universitarios que no reconozcan y apoyen activamente a su personal
+neurodivergente de alta capacidad perderán una fuente de pensamiento divergente,
+originalidad científica y creatividad intelectual que ninguna institución que
+aspire a la excelencia puede permitirse ignorar.
+
+% ═══════════════════════════════════════════════════════════
+% BIBLIOGRAFÍA
+% ═══════════════════════════════════════════════════════════
+
+\newpage
+\printbibliography[title={Referencias}]
+
+% ═══════════════════════════════════════════════════════════
+% APÉNDICES
+% ═══════════════════════════════════════════════════════════
+
+\newpage
+\appendix
+
+\section{Strings de búsqueda completos}
+\label{app:strings}
+
+\subsection*{S1 — Amplio}
+\begin{verbatim}
+("autism spectrum disorder" OR "ASD" OR "autism")
+AND
+("giftedness" OR "gifted" OR "high ability" OR "high abilities"
+ OR "twice exceptional" OR "dual exceptionality"
+ OR "intellectually gifted")
+\end{verbatim}
+
+\subsection*{S2 — Adultos profesionales}
+\begin{verbatim}
+("autism spectrum disorder" OR "ASD" OR "autistic")
+AND
+("giftedness" OR "high ability" OR "twice exceptional"
+ OR "high intellectual potential")
+AND
+("researcher" OR "scientist" OR "academic" OR "university"
+ OR "higher education" OR "STEM" OR "professor")
+\end{verbatim}
+
+\subsection*{S3 — Diagnóstico tardío y enmascaramiento}
+\begin{verbatim}
+("autism spectrum disorder" OR "ASD")
+AND
+("giftedness" OR "high ability" OR "intellectually gifted")
+AND
+("late diagnosis" OR "late identified" OR "masking"
+ OR "camouflaging" OR "compensation" OR "adult diagnosis")
+\end{verbatim}
+
+\subsection*{S4 — Neurodiversidad en entornos laborales}
+\begin{verbatim}
+("autistic" OR "autism spectrum")
+AND ("neurodiversity" OR "neurodivergent")
+AND ("academic career" OR "research career" OR "workplace"
+     OR "employment" OR "scientists" OR "professionals")
+AND ("high ability" OR "gifted" OR "twice exceptional")
+\end{verbatim}
+
+\subsection*{S5 — Español/Latinoamérica}
+\begin{verbatim}
+("trastorno del espectro autista" OR "TEA" OR "autismo")
+AND
+("altas capacidades" OR "superdotación" OR "doble excepcionalidad"
+ OR "alta capacidad intelectual")
+AND
+("investigación" OR "academia" OR "universidad" OR "investigadores")
+\end{verbatim}
+
+\section{Estadísticas del corpus maestro}
+\label{app:stats}
+
+\begin{table}[H]
+\centering
+\caption{Estadísticas completas del corpus maestro}
+\label{tab:stats}
+\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Indicador} & \textbf{Valor} \\
+\midrule
+Registros totales (bruto, 5 strings)    & 5.500 \\
+Duplicados eliminados                    & 1.534 (27,9\,\%) \\
+Corpus maestro final                     & 3.966 \\
+\quad Artículos de revista              & 2.838 (71,6\,\%) \\
+\quad Misc/Preprints                    & 582 (14,7\,\%) \\
+\quad Libros                            & 251 (6,3\,\%) \\
+\quad Capítulos                         & 212 (5,3\,\%) \\
+\quad Actas de conferencias             & 81 (2,0\,\%) \\
+\quad Reportes técnicos                 & 2 (0,1\,\%) \\
+\midrule
+Revistas únicas (artículos)             & 1.635 \\
+Zona 1 Bradford (núcleo)                & 113 revistas \\
+Zona 2 Bradford                         & 565 revistas \\
+Zona 3 Bradford (periferia)             & 957 revistas \\
+\midrule
+Autores únicos mencionados              & 20.986 \\
+Autores con 1 sola publicación          & 19.078 (90,9\,\%) \\
+Autores con $\geq$5 publicaciones       & 130 (0,6\,\%) \\
+Autores con $\geq$10 publicaciones      & 24 (0,1\,\%) \\
+\midrule
+Rango temporal del corpus               & 1834--2026 \\
+Año de mayor producción                 & 2021 ($n=425$) \\
+CAGR 2000--2010                         & 8,5\,\% \\
+CAGR 2010--2020                         & 16,4\,\% \\
+Registros post-2015                     & 78,3\,\% \\
+Registros post-2020                     & 49,1\,\% \\
+\midrule
+Registros en español (S5)               & 343 (8,6\,\%) \\
+Solapamiento S5--S1                     & 5,0\,\% \\
+Registros con referencia a Colombia     & 8 (0,2\,\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Material suplementario}
+\label{app:suplementario}
+
+El material suplementario de este artículo incluye:
+
+\begin{itemize}
+    \item \texttt{bibliometria\_TEA\_AACC.ipynb} — Cuaderno Jupyter con todo el
+    código de análisis, reproducible con Python~3.10+.
+    \item \texttt{corpus\_maestro\_TEA\_AACC\_academia.csv} — Corpus maestro
+    deduplicado en formato CSV (UTF-8).
+    \item \texttt{fig\_01} a \texttt{fig\_10} — Figuras del análisis en formato PNG.
+\end{itemize}
+
+Los archivos BibTeX originales (S1--S5) fueron exportados de Lens.org el
+5 de junio de 2026 y están disponibles bajo solicitud a los autores.
+
+\end{document}

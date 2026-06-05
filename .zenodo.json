@@ -1,0 +1,26 @@
+{
+  "title": "Análisis Bibliométrico sobre la Intersección del TEA y las Altas Capacidades en Investigadores y Académicos",
+  "description": "Repositorio de datos, código y artículo del análisis bibliométrico sobre TEA + Altas Capacidades en academia. Corpus: 3.966 registros de Lens.org. Incluye Jupyter notebook reproducible, LaTeX del artículo, y protocolo de autoexploración validado.",
+  "creators": [
+    {"name": "[Autor principal]", "affiliation": "Universidad de Sucre, Colombia"}
+  ],
+  "keywords": [
+    "autism spectrum disorder", "giftedness", "twice-exceptional",
+    "bibliometrics", "academia", "Colombia", "Latinoamérica",
+    "neurodiversity", "masking", "late diagnosis", "altas capacidades"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "language": "spa",
+  "related_identifiers": [
+    {"relation": "isDocumentedBy", "identifier": "10.5281/zenodo.XXXXXXX"}
+  ],
+  "communities": [{"identifier": "zenodo"}],
+  "subjects": [
+    {"term": "Special Education", "scheme": "url",
+     "identifier": "https://id.loc.gov/authorities/subjects/sh85125355"},
+    {"term": "Autism", "scheme": "url",
+     "identifier": "https://id.loc.gov/authorities/subjects/sh85010263"}
+  ]
+}

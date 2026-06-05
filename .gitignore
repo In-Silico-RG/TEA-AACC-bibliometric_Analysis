@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+.env
+*.DS_Store
+# Archivos grandes opcionales
+# data/raw/*.csv   # descomentar si prefiere no versionar los CSVs
